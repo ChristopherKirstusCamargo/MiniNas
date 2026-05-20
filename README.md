@@ -115,7 +115,5 @@ You can get your current username using:
 
 ```whoami```
 
+Just a practical guide on how to have a pocket Server.
 
-That and just a basic server, which I've been using for a while and decided to share how the configuration I used was, I highly recommend reading the copyparty project wiki because and a project of extra quality and complexity, I'm happy if I helped you, and remember, read it.
-
-by Christopher
