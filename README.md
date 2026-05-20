@@ -98,3 +98,4 @@ by Christopher
 
 
 ## Future Roadmap
+Automation script using termux-boot for automated startup.
