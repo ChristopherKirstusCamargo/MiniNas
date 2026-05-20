@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://i.pinimg.com/736x/cd/0c/2a/cd0c2a8488f81f4400855369089d31f2.jpg" width="350">
+  <img src="https://i.pinimg.com/736x/cd/0c/2a/cd0c2a8488f81f4400855369089d31f2.jpg" width="250">
 </p>
 
 # Mini-NAS with Copyparty & Termux
