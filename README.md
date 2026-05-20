@@ -120,5 +120,5 @@ You can get your current username using:
 
 ```whoami```
 
-Just a practical guide on how to have a pocket Server.
+A practical guide for building a pocket-sized server.
 
