@@ -1,10 +1,14 @@
 # Mini-NAS with Copyparty & Termux
 
-This guide provides a step-by-step process for turning an unused Android device into a secure Mini-NAS using [Copyparty](https://github.com/9001/copyparty) and Termux. 
+Lightweight homemade NAS running on Android using Termux, Copyparty and Cloudflare Tunnel.
 
-To mitigate risks, this setup uses a dual-server architecture:
-1. **Local Server:** Highly secure, restricted to your local network (static IP), intended for sensitive personal files.
-2. **Public Server:** Exposed to the internet via a Cloudflare tunnel, intended only for non-sensitive data sharing. Storage is segregated using external SD cards.
+## Features
+
+- Local private storage
+- Public file sharing
+- Remote access without port forwarding
+- Low power consumption
+- SSH remote management
 
 ## Prerequisites
 * An Android device.
@@ -13,10 +17,13 @@ To mitigate risks, this setup uses a dual-server architecture:
 ## 1. Environment Setup
 
 ```bash
-termux-setup-storage 
+termux-setup-storage
+ 
 pkg update && pkg upgrade -y
+
 pkg install python termux-api && python -m ensurepip && python -m pip install --user -U copyparty && { grep -qE 'PATH=.*\.local/bin' ~/.bashrc 2>/dev/null || { echo 'PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && . ~/.bashrc; }; }
 echo $?
+
 pkg install ffmpeg && python3 -m pip install --user -U pillow
 ```
 ## 2. Configuration Files
@@ -80,22 +87,35 @@ cloudflared tunnel --url http://127.0.0.1:8080
 ```
 Cloudflared will generate a public URL in the terminal. You can now access your segregated public server from anywhere in the world using that link, while your sensitive data remains locked safely in the local instance.
 
-## 4. Extra tips
+## 4. Extra Tips
 
-If your phone is at a distance from you, or has any problem that makes it difficult to use without connecting it to a computer, I recommend that you use OpenSSH for local and remote generation of the same device, for this I will leave a mini explanation of how to do this, I hope you like it, thank you.
+If your device is far away or difficult to use directly, you can manage it remotely using OpenSSH.
+
+Install and enable the SSH server:
 
 ```bash
 pkg install openssh
+
 sshd
+
 sv-enable sshd
-passwd # enter your password
+
+passwd
+# Set your password
 ```
-On your computer or other device that allows you to connect, type the following command ``` ssh u0_a409@10.0.0.0 -p 8022 ``` remember to use the IP of your device and the user collects himself with the ``` whoami ``` command running on the device that provides the server 
+To connect from another computer or device on the same network:
+
+```ssh username@device-ip -p 8022```
+
+Example:
+
+```ssh u0_a409@10.0.0.0 -p 8022```
+
+You can get your current username using:
+
+```whoami```
+
 
 That and just a basic server, which I've been using for a while and decided to share how the configuration I used was, I highly recommend reading the copyparty project wiki because and a project of extra quality and complexity, I'm happy if I helped you, and remember, read it.
 
 by Christopher
-
-
-## Future Roadmap
-Automation script using termux-boot for automated startup.
