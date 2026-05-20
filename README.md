@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="https://i.pinimg.com/736x/cd/0c/2a/cd0c2a8488f81f4400855369089d31f2.jpg" width="350">
+</p>
+
 # Mini-NAS with Copyparty & Termux
 
 Lightweight homemade NAS running on Android using Termux, Copyparty and Cloudflare Tunnel.
