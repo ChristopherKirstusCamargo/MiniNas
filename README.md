@@ -27,7 +27,6 @@ termux-setup-storage
 pkg update && pkg upgrade -y
 
 pkg install python termux-api && python -m ensurepip && python -m pip install --user -U copyparty && { grep -qE 'PATH=.*\.local/bin' ~/.bashrc 2>/dev/null || { echo 'PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc && . ~/.bashrc; }; }
-echo $?
 
 pkg install ffmpeg && python3 -m pip install --user -U pillow
 ```
